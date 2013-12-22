@@ -1,10 +1,12 @@
 package jhyun.ssw.spring.shiro;
 
 import com.google.common.collect.ImmutableMap;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Sha1Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -22,16 +24,21 @@ public class MyRealm extends AuthorizingRealm {
 
     public static Logger logger = LoggerFactory.getLogger(MyRealm.class);
 
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        // TODO:
-        return null;
-    }
-
 
     private Map<String, String> userPasswords = ImmutableMap.<String, String>builder()
             .put("admin", "1234")
             .build();
+
+
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        final String u = ObjectUtils.toString(principals.getPrimaryPrincipal());
+        SimpleAuthorizationInfo a = new SimpleAuthorizationInfo();
+        //
+        a.addRole("admins");
+        //
+        return a;
+    }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
