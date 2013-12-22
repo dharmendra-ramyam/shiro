@@ -1,0 +1,28 @@
+
+* Custom Realms ?
+
+
+
+* Shiro Aspects?
+
+
+
+* Spring WebMVC Shiro Sessions Parameter Injections?
+
+
+
+---- DONE ----
+
+
+* Spring + shiro.ini ?
+    - 그냥 안쓰는게 더 맞을듯. ㅎㅎ
+    - 정 쓰고 싶으면 그냥 shiro.ini 대신에 spring-xml을 쓰면 되고.
+
+
+
+* ehcache + session.
+
+
+
+
+### EOF
