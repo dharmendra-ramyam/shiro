@@ -3,7 +3,7 @@
 
 
 
-* Shiro Aspects?
+
 
 
 
@@ -21,6 +21,15 @@
 
 
 * ehcache + session.
+
+
+
+* Shiro Aspects?
+    - lifecycleBeanPostProcessor, defaultAdvisorAutoProxyCreator, authorizationAttributeSourceAdvisor 요렇게 빈 세개 설정하고.
+    - Controller 등 Proxy지정될 클래스들을 @ComponentScan으로 지정. (혹은 다른 컨텍스트에서 지정.)
+        - 그리고 @EnableAspectJAutoProxy(proxyTargetClass = true) 정도로 지정하고.
+
+    -     @RequiresUser 정도로 어노테이션 붙이면 검사함. ㅎㅎㅎ
 
 
 
