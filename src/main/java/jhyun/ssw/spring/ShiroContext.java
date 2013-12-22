@@ -1,6 +1,7 @@
 package jhyun.ssw.spring;
 
 import com.google.common.collect.ImmutableMap;
+import jhyun.ssw.spring.shiro.MyRealm;
 import jhyun.ssw.spring.shiro.ShiroContextInitialize;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.shiro.cache.CacheManager;
@@ -56,9 +57,14 @@ public class ShiroContext {
         sm.setCacheManager(cacheManager);
         sm.setSessionManager(sessionManager);
         // realm.
+        /*
         IniRealm realm = new IniRealm();
         realm.addAccount("admin", "1234");
         sm.setRealm(realm);
+        //
+        */
+        MyRealm r2 = new MyRealm();
+        sm.setRealm(r2);
         //
         return sm;
     }
