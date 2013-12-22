@@ -1,13 +1,8 @@
 
 * Custom Realms ?
+    - Class AuthorizingRealm
 
 
-
-
-
-
-
-* Spring WebMVC Shiro Sessions Parameter Injections?
 
 
 
@@ -30,6 +25,13 @@
         - 그리고 @EnableAspectJAutoProxy(proxyTargetClass = true) 정도로 지정하고.
 
     -     @RequiresUser 정도로 어노테이션 붙이면 검사함. ㅎㅎㅎ
+
+
+
+
+* Spring WebMVC Shiro Sessions Parameter Injections?
+    - HandlerMethodArgumentResolver을 구현하고, 거기에서 바인딩. (타입에 따라서.)
+    - 그렇게 구현한 HandlerMethodArgumentResolver을 WebMvcConfigurerAdapter을 상속해서, #addArgumentResolvers
 
 
 

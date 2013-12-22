@@ -1,6 +1,8 @@
 package jhyun.ssw.webmvc;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresUser;
+import org.apache.shiro.session.Session;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
@@ -22,7 +24,8 @@ public class FoobarController {
 
     @RequiresUser
     @RequestMapping(value = "/restrictedHello")
-    public ModelAndView restrictedHello(ModelMap m) {
+    public ModelAndView restrictedHello(ModelMap m, Session session) {
+        m.put("s", session);
         return new ModelAndView("foobar/hello", m);
     }
 }

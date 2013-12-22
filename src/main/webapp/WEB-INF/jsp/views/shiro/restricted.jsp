@@ -1,3 +1,4 @@
+<%@ page import="org.apache.shiro.session.Session" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
@@ -13,3 +14,9 @@
         <a href="index">INDEX</a>
     </body>
 </html>
+
+<%
+    Session s = SecurityUtils.getSubject().getSession();
+
+    s.setAttribute("foo", System.currentTimeMillis());
+%>
